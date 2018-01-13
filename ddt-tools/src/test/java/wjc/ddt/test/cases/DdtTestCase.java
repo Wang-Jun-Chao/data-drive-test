@@ -55,13 +55,10 @@ public class DdtTestCase {
         String expect = "{\"b\": 2, \"a\": 1}";
 
         JSONCompareResult result = JSONCompare.compareJSON(actual, expect, JSONCompareMode.NON_EXTENSIBLE);
+        System.out.println(result.getMessage());
+        Assert.assertTrue(result.passed());
 
-        JSONAssert.assertEquals(actual, expect, false);
 
-
-//        System.out.println(result);
-
-//        JSONAssert.assertEquals(actual, expect, false);
     }
 
     @Test
@@ -71,7 +68,7 @@ public class DdtTestCase {
 
         JSONCompareResult result = JSONCompare.compareJSON(actual, expect, JSONCompareMode.NON_EXTENSIBLE);
         // 判断比较actual中是否有不存在的字段
-        System.out.println(result.getFieldMissing());
+        System.out.println(result.getMessage());
         Assert.assertTrue(result.getFieldMissing().isEmpty());
     }
 
@@ -83,9 +80,6 @@ public class DdtTestCase {
         JSONCompareResult result = JSONCompare.compareJSON(actual, expect, JSONCompareMode.NON_EXTENSIBLE);
         // 判断比较actual中是否有不存在的字段
         List<FieldComparisonFailure> fieldComparisonFailures = result.getFieldMissing();
-        for (FieldComparisonFailure f: fieldComparisonFailures             ) {
-            System.out.println(f.getExpected());
-        }
         System.out.println(result.getMessage());
         Assert.assertFalse(fieldComparisonFailures.isEmpty());
     }
