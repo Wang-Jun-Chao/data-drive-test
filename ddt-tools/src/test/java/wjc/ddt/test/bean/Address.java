@@ -1,4 +1,4 @@
-package wjc.ddt.testbean;
+package wjc.ddt.test.bean;
 
 import java.io.Serializable;
 
@@ -12,15 +12,17 @@ import java.io.Serializable;
 public class Address implements Serializable {
     private int postcode;
     private String country;
+    private String provice;
     private String city;
     private String street;
 
     public Address() {
     }
 
-    public Address(int postcode, String country, String city, String street) {
+    public Address(int postcode, String country, String provice, String city, String street) {
         this.postcode = postcode;
         this.country = country;
+        this.provice = provice;
         this.city = city;
         this.street = street;
     }
@@ -57,11 +59,20 @@ public class Address implements Serializable {
         this.street = street;
     }
 
+    public String getProvice() {
+        return provice;
+    }
+
+    public void setProvice(String provice) {
+        this.provice = provice;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
                 "postcode=" + postcode +
                 ", country='" + country + '\'' +
+                ", provice='" + provice + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
                 '}';

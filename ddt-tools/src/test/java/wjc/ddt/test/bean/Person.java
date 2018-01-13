@@ -1,4 +1,4 @@
-package wjc.ddt.testbean;
+package wjc.ddt.test.bean;
 
 import java.io.Serializable;
 import java.util.List;
